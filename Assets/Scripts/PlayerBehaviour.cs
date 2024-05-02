@@ -83,4 +83,7 @@ public class PlayerBehaviour : MonoBehaviour
         Animator.SetFloat("velocityY", Rigidbody.velocity.y);
         Animator.SetBool("isGrounded", _isGrounded);
     }
+    public void Die()
+    {
+    }
 }

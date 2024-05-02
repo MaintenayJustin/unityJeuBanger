@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
 
+    public int MaxHealth;
     public static GameManager Instance;
     public TMP_Text FruitText;
+    public HealthBarBehaviour HealthBar;
     private int _fruitCount = 0;
-    public List<GameObject> Fruits;
 
+    public UnityEvent OnDeath;
+
+    public List<GameObject> Fruits;
+    private int NbFruitsACreer = 5;
+
+    private int _currentHealth;
 
     private void Awake()
     {
@@ -25,11 +33,14 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        for (int i = 0; i < 4; i++)
+        _currentHealth = MaxHealth;
+        // On crée 4 fruits pour le joueur
+        for (int i = 0; i < NbFruitsACreer; i++)
         {
             CreateFruit();
         }
     }
+    // Permet de créer un fruit sur un point random (possible)
     public void CreateFruit()
     {
         // On récupère un objet random dans la liste possible
@@ -45,6 +56,7 @@ public class GameManager : MonoBehaviour
         Instantiate(randomFruit, pointSurLecran, Quaternion.identity);
 
     }
+    // Permet de récupérer un point random sur l'écran visible par le joueur (peut être sur un collider)
     private Vector3 GetPointSurEcran()
     {
         // On prend un point random en fonction de la taille de l'écran et on fait spawn un fruit dessus
@@ -52,9 +64,17 @@ public class GameManager : MonoBehaviour
         pointSurLecran.z = 0;
         return pointSurLecran;
     }
+    // Ajoute un nombre au score du joueur
     public void AddScore(int score)
     {
         _fruitCount += score;
         FruitText.text = $"Score : {_fruitCount}";
+    }
+    public void TakeDamage(int amount)
+    {
+        _currentHealth -= amount;
+        HealthBar.SetHealth(_currentHealth, MaxHealth);
+        if (_currentHealth <= 0)
+            OnDeath?.Invoke();
     }
 }
