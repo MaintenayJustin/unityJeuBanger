@@ -4,4 +4,5 @@ using UnityEngine;
 public class FruitData : ScriptableObject
 {
     public int Score;
+    public float DropRate;
 }
