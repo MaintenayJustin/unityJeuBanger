@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123699158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.58, y: -42.871, z: 0.7416243}
+  m_LocalPosition: {x: -25.58, y: -43.36, z: 0.7416243}
   m_LocalScale: {x: 0.846432, y: 0.47999993, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -547,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245219848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.217, y: -43.318, z: 0.7416243}
+  m_LocalPosition: {x: -24.222, y: -42.877, z: 0.7416243}
   m_LocalScale: {x: 0.8464319, y: 0.47999996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -658,7 +658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476724006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.9865, y: -43.3181, z: 0.7416243}
+  m_LocalPosition: {x: -26.885, y: -42.872, z: 0.7416243}
   m_LocalScale: {x: 0.8464319, y: 0.47999996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,6 +844,8 @@ MonoBehaviour:
   - {fileID: 8440233755468927200, guid: 6bc78527ce6de904cad5afde3d3d8116, type: 3}
   - {fileID: 6204697620559042611, guid: b556ca1fc099cdf4097b3d5b58f7d275, type: 3}
   - {fileID: 8699107514195700465, guid: 2069ef4b4d75c6341a779c395587e03a, type: 3}
+  - {fileID: 8999174397131772034, guid: a59cc86d3d538764a926d133ce4130d2, type: 3}
+  - {fileID: 1482146185230910395, guid: 7806afc9891665b4e87802e6fb50c729, type: 3}
 --- !u!4 &681801447
 Transform:
   m_ObjectHideFlags: 0
@@ -1146,7 +1148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fruit : 0'
+  m_text: 'Score : 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
