@@ -6,7 +6,8 @@ public class PlayerBehaviour : MonoBehaviour
     public Animator Animator;
     public SpriteRenderer spriteRenderer;
     public float JumpForce = 120;
-    public float Speed = 15f;
+    public float MaxSpeed = 15f;
+    public float CurrentSpeed;
     private Rigidbody2D Rigidbody;
     public Transform RaycastOrigin;
 
@@ -39,9 +40,20 @@ public class PlayerBehaviour : MonoBehaviour
         // On saura si le joueur est donc sur le sol (pour les sauts etc...)
         _isGrounded = hit.collider != null || hitL.collider != null || hitR.collider != null;
 
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            CurrentSpeed = MaxSpeed * 2;
+        }
+        else
+        {
+            CurrentSpeed = MaxSpeed;
+        }
+
         // Si le joueur appuie sur la flèche droite
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            Debug.Log("Je vais à droite");
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginRight.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginRightDown.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit3 = Physics2D.Raycast(RaycastOriginRightUp.position, Vector2.right, 0.1f, GroundMask);
@@ -49,7 +61,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
             {
                 spriteRenderer.flipX = false;
-                Rigidbody.velocity = new Vector2(Speed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(CurrentSpeed, Rigidbody.velocity.y);
             }
 
         }
@@ -57,6 +69,7 @@ public class PlayerBehaviour : MonoBehaviour
         // Si le joueur appuie sur la flèche gauche
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            Debug.Log("Je vais à gauche");
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginLeft.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginLeftDown.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit3 = Physics2D.Raycast(RaycastOriginLeftUp.position, Vector2.left, 0.1f, GroundMask);
@@ -64,7 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
             {
                 spriteRenderer.flipX = true;
-                Rigidbody.velocity = new Vector2(-Speed, Rigidbody.velocity.y);
+                Rigidbody.velocity = new Vector2(-CurrentSpeed, Rigidbody.velocity.y);
             }
 
         }
@@ -74,6 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
         // Si le joueur appuie sur la touche saut
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
+            Debug.Log("Je saute");
             Rigidbody.AddForce(Vector2.up * JumpForce);
             Animator.SetTrigger("Jump");
         }

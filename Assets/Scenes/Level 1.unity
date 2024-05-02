@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 152730065}
   m_Layer: 0
-  m_Name: RaycastOriginUpRight
+  m_Name: UpRight
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174058257}
   m_Layer: 0
-  m_Name: RaycastOriginRight
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -306,9 +306,9 @@ GameObject:
   m_Component:
   - component: {fileID: 177437338}
   m_Layer: 0
-  m_Name: RaycastOriginDownRight
+  m_Name: DownRight
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -986,9 +986,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1191131080}
   m_Layer: 0
-  m_Name: RaycastOriginDownLeft
+  m_Name: DownLeft
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1017,7 +1017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313552737}
   m_Layer: 0
-  m_Name: RaycastOriginRightDown
+  m_Name: RightDown
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1048,9 +1048,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1330736852}
   m_Layer: 0
-  m_Name: RaycastOriginLeftDown
+  m_Name: LeftDown
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1079,9 +1079,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1482265065}
   m_Layer: 0
-  m_Name: RaycastOrigin
+  m_Name: Down
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1271,7 +1271,8 @@ MonoBehaviour:
   Animator: {fileID: 1876120663}
   spriteRenderer: {fileID: 1876120660}
   JumpForce: 200
-  Speed: 1
+  MaxSpeed: 15
+  CurrentSpeed: 0
   RaycastOrigin: {fileID: 1482265065}
   GroundMask:
     serializedVersion: 2
@@ -1438,9 +1439,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1919322600}
   m_Layer: 0
-  m_Name: RaycastOriginLeft
+  m_Name: Left
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1469,9 +1470,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1937555365}
   m_Layer: 0
-  m_Name: RaycastOriginUpLeft
+  m_Name: UpLeft
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
