@@ -839,7 +839,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865dc97f2a9883d48b49a3c0a9a52fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 0
   FruitText: {fileID: 1863901766}
+  HealthBar: {fileID: 954007647}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1876120658}
+        m_TargetAssemblyTypeName: PlayerBehaviour, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Fruits:
   - {fileID: 8440233755468927200, guid: 6bc78527ce6de904cad5afde3d3d8116, type: 3}
   - {fileID: 6204697620559042611, guid: b556ca1fc099cdf4097b3d5b58f7d275, type: 3}
@@ -854,7 +871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681801445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27934018, y: -0.20025611, z: -0.08268474}
+  m_LocalPosition: {x: -0.27, y: -0.195, z: -0.08268474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
