@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2226139955837512053, guid: 00e287247202fb34387e7489125a9cd0, type: 3}
+      propertyPath: Data
+      value: 
+      objectReference: {fileID: 11400000, guid: c04a82fc2c362db428e09b420a9d580f, type: 2}
     - target: {fileID: 3585864888971452228, guid: 00e287247202fb34387e7489125a9cd0, type: 3}
       propertyPath: m_Name
       value: Kiwi

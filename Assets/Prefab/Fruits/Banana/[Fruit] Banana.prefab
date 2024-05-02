@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2226139955837512053, guid: 00e287247202fb34387e7489125a9cd0, type: 3}
+      propertyPath: Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f45878274e544c469945f434080fed9, type: 2}
     - target: {fileID: 3585864888971452228, guid: 00e287247202fb34387e7489125a9cd0, type: 3}
       propertyPath: m_Name
       value: '[Fruit] Banana'

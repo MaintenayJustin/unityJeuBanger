@@ -52,8 +52,9 @@ public class GameManager : MonoBehaviour
         pointSurLecran.z = 0;
         return pointSurLecran;
     }
-    public void AddFruit()
+    public void AddScore(int score)
     {
-        FruitText.text = _fruitCount < 1 ? $"Fruit : {++_fruitCount}" : $"Fruits : {++_fruitCount}";
+        _fruitCount += score;
+        FruitText.text = $"Score : {_fruitCount}";
     }
 }
