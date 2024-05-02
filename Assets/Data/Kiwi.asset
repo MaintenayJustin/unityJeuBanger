@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cd151457ebe4446b38f4ef0989d26d, type: 3}
   m_Name: Kiwi
   m_EditorClassIdentifier: 
-  Score: 0
+  Score: 50

@@ -35,6 +35,8 @@ public class PlayerBehaviour : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(RaycastOriginDown.position, Vector2.down, 0.1f, GroundMask);
         RaycastHit2D hitL = Physics2D.Raycast(RaycastOriginDownLeft.position, Vector2.down, 0.1f, GroundMask);
         RaycastHit2D hitR = Physics2D.Raycast(RaycastOriginDownRight.position, Vector2.down, 0.1f, GroundMask);
+        // On vérifie si les 3 raycast ont vu un sol ou non
+        // On saura si le joueur est donc sur le sol (pour les sauts etc...)
         _isGrounded = hit.collider != null || hitL.collider != null || hitR.collider != null;
 
         // Si le joueur appuie sur la flèche droite
@@ -43,6 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginRight.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginRightDown.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit3 = Physics2D.Raycast(RaycastOriginRightUp.position, Vector2.right, 0.1f, GroundMask);
+            // On vérifie si les 3 raycast ont vu un obstacle à droite ou non
             if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
             {
                 spriteRenderer.flipX = false;
@@ -57,6 +60,7 @@ public class PlayerBehaviour : MonoBehaviour
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginLeft.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginLeftDown.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit3 = Physics2D.Raycast(RaycastOriginLeftUp.position, Vector2.left, 0.1f, GroundMask);
+            // On vérifie si les 3 raycast ont vu un obstacle à gauche ou non
             if (hit1.collider == null && hit2.collider == null && hit3.collider == null)
             {
                 spriteRenderer.flipX = true;
