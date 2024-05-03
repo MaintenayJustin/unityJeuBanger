@@ -6,7 +6,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Animator Animator;
     public SpriteRenderer spriteRenderer;
     public float JumpForce = 120;
-    public float MaxSpeed = 15f;
+    public float MaxSpeed = 1f;
     public float CurrentSpeed;
     private Rigidbody2D Rigidbody;
     public Transform RaycastOrigin;
@@ -41,7 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
         _isGrounded = hit.collider != null || hitL.collider != null || hitR.collider != null;
 
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && _isGrounded)
         {
             CurrentSpeed = MaxSpeed * 2;
         }
