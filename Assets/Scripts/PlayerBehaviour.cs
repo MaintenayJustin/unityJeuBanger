@@ -53,7 +53,6 @@ public class PlayerBehaviour : MonoBehaviour
         // Si le joueur appuie sur la flèche droite
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("Je vais à droite");
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginRight.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginRightDown.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit3 = Physics2D.Raycast(RaycastOriginRightUp.position, Vector2.right, 0.1f, GroundMask);
@@ -69,7 +68,6 @@ public class PlayerBehaviour : MonoBehaviour
         // Si le joueur appuie sur la flèche gauche
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Debug.Log("Je vais à gauche");
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginLeft.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginLeftDown.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit3 = Physics2D.Raycast(RaycastOriginLeftUp.position, Vector2.left, 0.1f, GroundMask);
@@ -87,7 +85,6 @@ public class PlayerBehaviour : MonoBehaviour
         // Si le joueur appuie sur la touche saut
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
         {
-            Debug.Log("Je saute");
             Rigidbody.AddForce(Vector2.up * JumpForce);
             Animator.SetTrigger("Jump");
         }

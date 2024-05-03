@@ -6,4 +6,5 @@ using UnityEngine;
 public class TrapData : ScriptableObject
 {
     public int DamageAmount;
+    public int Knockback;
 }
