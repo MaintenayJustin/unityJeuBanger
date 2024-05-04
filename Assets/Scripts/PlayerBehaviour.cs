@@ -69,7 +69,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         // Si le joueur appuie sur la flèche gauche
-        else if (Input.GetKey(KeyCode.LeftArrow) && !_isTakingDamage)
+        if (Input.GetKey(KeyCode.LeftArrow) && !_isTakingDamage)
         {
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginLeft.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginLeftDown.position, Vector2.left, 0.1f, GroundMask);
@@ -83,6 +83,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         }
         else
+            // TODO, REGLER CA POUR FAIRE MARCHER LE KNOCKBACK
             Rigidbody.velocity = new Vector2(0, Rigidbody.velocity.y);
 
         // Si le joueur appuie sur la touche saut
