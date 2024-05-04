@@ -24,12 +24,15 @@ public class PlayerBehaviour : MonoBehaviour
     public Transform RaycastOriginDownLeft;
     public Transform RaycastOriginDownRight;
     private bool _isGrounded;
+    public bool _isTakingDamage;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
     }
-
+    public void SetTakingDamage(bool NouvelEtat){
+        _isTakingDamage = NouvelEtat;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
         _isGrounded = hit.collider != null || hitL.collider != null || hitR.collider != null;
 
 
-        if (Input.GetKey(KeyCode.LeftShift) && _isGrounded)
+        if (Input.GetKey(KeyCode.LeftShift) && !_isTakingDamage) 
         {
             CurrentSpeed = MaxSpeed * 2;
         }
@@ -51,7 +54,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         // Si le joueur appuie sur la flèche droite
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && !_isTakingDamage)
         {
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginRight.position, Vector2.right, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginRightDown.position, Vector2.right, 0.1f, GroundMask);
@@ -66,7 +69,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         // Si le joueur appuie sur la flèche gauche
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) && !_isTakingDamage)
         {
             RaycastHit2D hit1 = Physics2D.Raycast(RaycastOriginLeft.position, Vector2.left, 0.1f, GroundMask);
             RaycastHit2D hit2 = Physics2D.Raycast(RaycastOriginLeftDown.position, Vector2.left, 0.1f, GroundMask);
@@ -83,7 +86,7 @@ public class PlayerBehaviour : MonoBehaviour
             Rigidbody.velocity = new Vector2(0, Rigidbody.velocity.y);
 
         // Si le joueur appuie sur la touche saut
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded && !_isTakingDamage)
         {
             Rigidbody.AddForce(Vector2.up * JumpForce);
             Animator.SetTrigger("Jump");
@@ -96,5 +99,6 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void Die()
     {
+        Debug.Log("Ratio");
     }
 }

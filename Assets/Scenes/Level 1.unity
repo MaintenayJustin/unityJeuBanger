@@ -842,6 +842,7 @@ MonoBehaviour:
   MaxHealth: 100
   FruitText: {fileID: 1863901766}
   HealthBar: {fileID: 954007647}
+  Player: {fileID: 1876120658}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -1196,6 +1197,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4468221683962857439, guid: f407c73b54fa1ac4eb2a895877823a66, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4564587393328273422, guid: f407c73b54fa1ac4eb2a895877823a66, type: 3}
       propertyPath: m_Name
       value: Saw (1)
@@ -1419,6 +1424,7 @@ MonoBehaviour:
   RaycastOriginDown: {fileID: 1482265065}
   RaycastOriginDownLeft: {fileID: 1191131080}
   RaycastOriginDownRight: {fileID: 177437338}
+  _isTakingDamage: 0
 --- !u!61 &1876120659
 BoxCollider2D:
   m_ObjectHideFlags: 0

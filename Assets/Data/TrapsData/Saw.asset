@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Saw
   m_EditorClassIdentifier: 
   DamageAmount: 10
-  Knockback: 10
+  KnockbackX: 250
+  KnockbackY: 3

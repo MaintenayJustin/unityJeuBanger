@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public TMP_Text FruitText;
     public HealthBarBehaviour HealthBar;
+    public PlayerBehaviour Player;
     private int _fruitCount = 0;
 
     public UnityEvent OnDeath;
@@ -72,9 +73,18 @@ public class GameManager : MonoBehaviour
     }
     public void TakeDamage(int amount)
     {
+        Player.SetTakingDamage(true);
+        StartCoroutine(DisableTakingDamage(0.2f));
+
         _currentHealth -= amount;
         HealthBar.SetHealth(_currentHealth, MaxHealth);
         if (_currentHealth <= 0)
             OnDeath?.Invoke();
+    }
+
+    private IEnumerator DisableTakingDamage(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Player.SetTakingDamage(false);
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SawBehaviour : MonoBehaviour
@@ -8,6 +6,7 @@ public class SawBehaviour : MonoBehaviour
     public GameManager GameManager;
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // On regarde si on a bien touché le joueur
         if (collision.collider.CompareTag("Player"))
         {
             // TODO, Knockback
@@ -16,10 +15,11 @@ public class SawBehaviour : MonoBehaviour
             // On récupère le Vecteur pour savoir d'où le joueur a touché la scie
             Vector2 VecteurPointTouche = collision.GetContact(0).normal;
             // On inverse les valeurs et on les double
-            VecteurPointTouche *= -Data.Knockback;
-            // On applique la force calculé au rigid Body du joueur
+            VecteurPointTouche *= -Data.KnockbackX;
+            VecteurPointTouche.y = Data.KnockbackY;
+            Debug.Log(VecteurPointTouche.ToString());
+            // On applique la force calculée au rigid Body du joueur
             RbPlayer.AddForce(VecteurPointTouche, ForceMode2D.Impulse);
-            // Debug.Log(VecteurPointTouche);
             GameManager.Instance.TakeDamage(Data.DamageAmount);
         }
     }

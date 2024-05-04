@@ -19,10 +19,11 @@ public class HealthBarBehaviour : MonoBehaviour
     [Header("For testing purposes only")]
     [Range(0, 100)]
     public int Percent;
+    private readonly int MaxHealth = 100;
 
     private void OnValidate()
     {
-        SetHealth(Percent, 100);
+        SetHealth(Percent, MaxHealth);
     }
 
     public void SetHealth(int currentHealth, int maxHealth)
