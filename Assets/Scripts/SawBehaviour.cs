@@ -3,7 +3,10 @@ using UnityEngine;
 public class SawBehaviour : MonoBehaviour
 {
     public TrapData Data;
-    public GameManager GameManager;
+    private GameManager GameManager;
+    void Start(){
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // On regarde si on a bien touché le joueur
