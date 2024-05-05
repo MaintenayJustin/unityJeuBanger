@@ -46,7 +46,7 @@ public class PlayerBehaviour : MonoBehaviour
         // On saura si le joueur est donc sur le sol (pour les sauts etc...)
         _isGrounded = hit.collider != null || hitL.collider != null || hitR.collider != null;
 
-
+        // Si le joueur est mort, on ne prend pas en compte ses inputs
         if(!_isDead){
             if (Input.GetKey(KeyCode.LeftShift) && !_isTakingDamage) 
             {
@@ -100,6 +100,9 @@ public class PlayerBehaviour : MonoBehaviour
         Animator.SetFloat("velocityX", Mathf.Abs(Rigidbody.velocity.x));
         Animator.SetFloat("velocityY", Rigidbody.velocity.y);
         Animator.SetBool("isGrounded", _isGrounded);
+    }
+    public void PutKnockback(Vector2 VecteurPointTouche){
+        Rigidbody.AddForce(VecteurPointTouche, ForceMode2D.Impulse);
     }
     // Appelé dans l'event OnDeath() du game manager
     public void Die()

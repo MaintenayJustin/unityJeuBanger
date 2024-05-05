@@ -77,13 +77,19 @@ public class GameManager : MonoBehaviour
         // On applique un effet de KNOCKBACK au joueur
         // On récupère le rigidbody du joueur
         Rigidbody2D RbPlayer = collision.collider.GetComponent<Rigidbody2D>();
-        // On récupère le Vecteur pour savoir d'où le joueur a touché la scie
+        // On récupère le Vecteur pour savoir d'où le joueur a touché le piège
         Vector2 VecteurPointTouche = collision.GetContact(0).normal;
+        // TODO, changer le calcul de knockback quand on touche depuis le haut
+        // (SI LE VECTEUR EN Y EST NEGATIF, ALORS ON VA PRENDRE EN COMPTE CECI)
+        if(VecteurPointTouche.y < 0){
+            Debug.Log("TU AS TOUCHE DEPUIS LE HAUT ZEBI");
+        }
         // On inverse les valeurs et on les double
         VecteurPointTouche.x *= -trapData.KnockbackX;
         VecteurPointTouche.y = trapData.KnockbackY;
-        // On applique la force calculée au rigid Body du joueur
-        RbPlayer.AddForce(VecteurPointTouche, ForceMode2D.Impulse);
+        
+        // On applique le knockback au joueur
+        Player.PutKnockback(VecteurPointTouche);
         Player.SetTakingDamage(true);
         StartCoroutine(DisableTakingDamage(0.2f));
 
@@ -94,7 +100,6 @@ public class GameManager : MonoBehaviour
 
         
     }
-
     private IEnumerator DisableTakingDamage(float time)
     {
         yield return new WaitForSeconds(time);
