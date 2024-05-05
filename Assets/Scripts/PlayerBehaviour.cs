@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PlayerBehaviour : MonoBehaviour
 {
 
@@ -29,6 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
+        
     }
     public void SetTakingDamage(bool NouvelEtat){
         _isTakingDamage = NouvelEtat;
@@ -98,6 +100,9 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void Die()
     {
-        Debug.Log("Ratio");
+        Animator.SetBool("isDead", true);
+    }
+    public void ReloadScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

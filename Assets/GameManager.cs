@@ -71,15 +71,27 @@ public class GameManager : MonoBehaviour
         _fruitCount += score;
         FruitText.text = $"Score : {_fruitCount}";
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(TrapData trapData, Collision2D collision)
     {
+        // On applique un effet de KNOCKBACK au joueur
+        // On récupère le rigidbody du joueur
+        Rigidbody2D RbPlayer = collision.collider.GetComponent<Rigidbody2D>();
+        // On récupère le Vecteur pour savoir d'où le joueur a touché la scie
+        Vector2 VecteurPointTouche = collision.GetContact(0).normal;
+        // On inverse les valeurs et on les double
+        VecteurPointTouche.x *= -trapData.KnockbackX;
+        VecteurPointTouche.y = trapData.KnockbackY;
+        // On applique la force calculée au rigid Body du joueur
+        RbPlayer.AddForce(VecteurPointTouche, ForceMode2D.Impulse);
         Player.SetTakingDamage(true);
         StartCoroutine(DisableTakingDamage(0.2f));
 
-        _currentHealth -= amount;
+        _currentHealth -= trapData.DamageAmount;
         HealthBar.SetHealth(_currentHealth, MaxHealth);
         if (_currentHealth <= 0)
             OnDeath?.Invoke();
+
+        
     }
 
     private IEnumerator DisableTakingDamage(float time)
