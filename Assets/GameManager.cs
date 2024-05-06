@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         // On récupère un objet random dans la liste possible
         GameObject randomFruit = Fruits[Random.Range(0, Fruits.Count)];
         Vector3 pointSurLecran = GetPointSurEcran();
-        Collider2D collided = Physics2D.CircleCast((Vector2)pointSurLecran, 0.005f, (Vector2)pointSurLecran).collider;
+        Collider2D collided = Physics2D.CircleCast((Vector2)pointSurLecran, 0.01f, (Vector2)pointSurLecran).collider;
         while (collided != null)
         {
             // On vérifie qu'il n'y a pas de collider sur ce point
