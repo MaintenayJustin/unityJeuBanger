@@ -75,8 +75,6 @@ public class GameManager : MonoBehaviour
     public void TakeDamage(TrapData trapData, Collision2D collision)
     {
         // On applique un effet de KNOCKBACK au joueur
-        // On récupère le rigidbody du joueur
-        Rigidbody2D RbPlayer = collision.collider.GetComponent<Rigidbody2D>();
         // On récupère le Vecteur pour savoir d'où le joueur a touché le piège
         Vector2 VecteurPointTouche = collision.GetContact(0).normal;
         // TODO, changer le calcul de knockback quand on touche depuis le haut
