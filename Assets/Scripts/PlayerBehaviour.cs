@@ -85,7 +85,6 @@ public class PlayerBehaviour : MonoBehaviour
 
             }
             else if(!_isTakingDamage)
-                // TODO, REGLER CA POUR FAIRE MARCHER LE KNOCKBACK
                 Rigidbody.velocity = new Vector2(0, Rigidbody.velocity.y);
 
             // Si le joueur appuie sur la touche saut

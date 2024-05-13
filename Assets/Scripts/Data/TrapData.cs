@@ -6,6 +6,6 @@ using UnityEngine;
 public class TrapData : ScriptableObject
 {
     public int DamageAmount;
-    public int KnockbackX;
-    public int KnockbackY;
+    public float KnockbackX;
+    public float KnockbackY;
 }

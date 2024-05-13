@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageAmount: 10
   KnockbackX: 1
-  KnockbackY: 1
+  KnockbackY: 1.5

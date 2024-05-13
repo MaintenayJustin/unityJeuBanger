@@ -80,10 +80,14 @@ public class GameManager : MonoBehaviour
         // TODO, changer le calcul de knockback quand on touche depuis le haut
         // (SI LE VECTEUR EN Y EST NEGATIF, ALORS ON VA PRENDRE EN COMPTE CECI)
         if(VecteurPointTouche.y < 0){
-            Debug.Log("TU AS TOUCHE DEPUIS LE HAUT ZEBI");
+            // On inverse les valeurs et on les double
+            VecteurPointTouche.x = -trapData.KnockbackX;
+
+        } else {
+            // On inverse les valeurs et on les double
+            VecteurPointTouche.x *= -trapData.KnockbackX;       
         }
-        // On inverse les valeurs et on les double
-        VecteurPointTouche.x *= -trapData.KnockbackX;
+        Debug.Log(Player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0));
         VecteurPointTouche.y = trapData.KnockbackY;
         
         // On applique le knockback au joueur
